@@ -33,3 +33,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+asset\font
+asset/font/KORIN_I.ttf
+asset/font/KORIN.ttf
+asset/font/KORIN25.ttf
+asset/font/KORIN26.ttf
+asset/font/KORIN27.ttf
