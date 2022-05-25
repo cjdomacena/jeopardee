@@ -34,7 +34,7 @@ const Game: React.FC<Props> = () => {
       const results = await Promise.all(
         categories.map(async (category: TCategories) => {
           const req = await fetch(`https://jservice.io/api/category?id=${category.id}`);
-          const res = await req.json()
+          const res = await req.json();
           return res;
         }),
       );
@@ -61,6 +61,17 @@ const Game: React.FC<Props> = () => {
       item = JSON.parse(item);
       setQuestions(item);
     }
+
+    return () => {
+      body.classList.remove("bg-black");
+      body.classList.add("bg-primary");
+      if (
+        localStorage.getItem("jeopardee-categories") === "null" ||
+        localStorage.getItem("jeopardee-categories") === null
+      ) {
+        localStorage.removeItem("jeopardee-categories");
+      }
+    };
   }, []);
 
   useEffect(() => {

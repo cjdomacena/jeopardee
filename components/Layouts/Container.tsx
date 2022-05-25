@@ -6,7 +6,7 @@ type Props = {
 };
 
 const Container: React.FC<Props> = ({ children, className }) => {
-  return <section className={`container mx-auto my-12 ${className}`}>{children}</section>;
+  return <section className={`container mx-auto ${className}`}>{children}</section>;
 };
 
 export default Container;
