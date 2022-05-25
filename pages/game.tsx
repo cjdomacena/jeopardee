@@ -57,8 +57,7 @@ const Game: React.FC<Props> = () => {
     ) {
       getQuestions();
     } else {
-      let item = localStorage.getItem("jeopardee-categories");
-      item = JSON.parse(item);
+      const item = JSON.parse(localStorage.getItem("jeopardee-categories") || "");
       setQuestions(item);
     }
 
