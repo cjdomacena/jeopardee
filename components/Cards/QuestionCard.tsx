@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import React, { useContext, useState } from "react";
 import { GameContext } from "../../context";
 import QuestionModal from "../Modal/QuestionModal";
@@ -7,9 +8,10 @@ type Props = {
   question: string;
   id: string | number;
   category_id: string | number;
+  answer: string,
 };
 
-const QuestionCard: React.FC<Props> = ({ value, question, id, category_id }) => {
+const QuestionCard: React.FC<Props> = ({ value, question, id, category_id, answer}) => {
   const [modal, setModal] = useState<boolean>(false);
   const {answered} = useContext(GameContext)
   return (
@@ -21,16 +23,18 @@ const QuestionCard: React.FC<Props> = ({ value, question, id, category_id }) => 
         onClick={() => setModal(true)}>
         {value}
       </button>
-
-      {modal ? (
-        <QuestionModal
-          id={id}
-          question={question}
-          closeModal={() => setModal(false)}
-          value={value}
-          category_id={category_id}
-        />
-      ) : null}
+      <AnimatePresence>
+        {modal ? (
+          <QuestionModal
+            id={id}
+            question={question}
+            closeModal={() => setModal(false)}
+            value={value}
+            category_id={category_id}
+            answer={answer}
+          />
+        ) : null}
+      </AnimatePresence>
     </>
   );
 };

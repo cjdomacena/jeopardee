@@ -73,6 +73,7 @@ const Column: React.FC<Props> = ({ clues, title, id }) => {
           question={s.question}
           id={s.id}
           category_id={s.category_id}
+          answer={s.answer}
         />
       ))}
     </div>
