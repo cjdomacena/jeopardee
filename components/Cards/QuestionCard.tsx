@@ -17,7 +17,7 @@ const QuestionCard: React.FC<Props> = ({ value, question, id, category_id, answe
   return (
     <>
       <button
-        className={`min-h-[100px] grid place-items-center  text-[#f9a74a] font-black text-4xl bg-primary ${
+        className={`min-h-[90px] grid place-items-center  text-[#f9a74a] font-black text-4xl bg-primary ${
           answered.find((i) => i === id) ? "opacity-50" : "opacity-100"
         }`}
         onClick={() => setModal(true)}>

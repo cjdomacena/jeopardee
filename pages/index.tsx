@@ -5,7 +5,7 @@ import Container from '../components/Layouts/Container'
 
 const Home: NextPage = () => {
   return (
-    <div className='h-full'>
+    <div className='h-screen bg-primary'>
       <Head>
         <title>Jeopardee</title>
         <meta name="description" content="Jeopardy for your friends" />

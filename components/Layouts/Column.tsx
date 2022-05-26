@@ -22,7 +22,6 @@ type Clue = {
 };
 
 const Column: React.FC<Props> = ({ clues, title, id }) => {
-  const { questions } = useContext(GameContext);
   const sort_clues = cleanClues(clues);
 
   function cleanClues(clues: Clue[]) {

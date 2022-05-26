@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useId, useState } from "react";
 import Board from "../components/Layouts/Board";
 import Column from "../components/Layouts/Column";
+import Gear from "../components/Settings/Gear";
 import { GameContext } from "../context";
 type Props = {
   data?: any;
@@ -15,7 +16,7 @@ export type TCategories = {
 const Game: React.FC<Props> = () => {
   const { questions, setQuestions } = useContext(GameContext);
 
-  async function getCategories() {
+   async function getCategories() {
     const randomInt = Math.floor(Math.random() * 15) + 1;
     let results = [];
     try {
@@ -46,11 +47,8 @@ const Game: React.FC<Props> = () => {
     }
   }
 
-  useEffect(() => {
-    const body = document.getElementsByTagName("body")[0];
-    body.classList.remove("bg-primary");
-    body.classList.add("bg-black");
 
+  useEffect(() => {
     if (
       localStorage.getItem("jeopardee-categories") === "null" ||
       localStorage.getItem("jeopardee-categories") === null
@@ -62,8 +60,6 @@ const Game: React.FC<Props> = () => {
     }
 
     return () => {
-      body.classList.remove("bg-black");
-      body.classList.add("bg-primary");
       if (
         localStorage.getItem("jeopardee-categories") === "null" ||
         localStorage.getItem("jeopardee-categories") === null
@@ -72,6 +68,7 @@ const Game: React.FC<Props> = () => {
       }
     };
   }, []);
+  
 
   useEffect(() => {
     if (
@@ -83,7 +80,8 @@ const Game: React.FC<Props> = () => {
   }, [questions]);
 
   return (
-    <main className="w-full h-screen gap-2 p-8 font-bold">
+    <main className="w-full h-screen gap-2 p-4 font-bold bg-black">
+      <Gear />
       <Board>
         {questions
           ? questions.map((category: TCategories) => (
@@ -102,3 +100,5 @@ const Game: React.FC<Props> = () => {
 };
 
 export default Game;
+
+

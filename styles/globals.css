@@ -11,12 +11,11 @@
 }
 
 html {
-  @apply bg-primary;
   font-family: 'Korinna';
-}
-
-body, #__next {
-    height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .text-shadow {
