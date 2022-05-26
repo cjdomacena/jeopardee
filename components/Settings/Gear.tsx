@@ -64,6 +64,7 @@ const Gear = (props: Props) => {
 	} catch(error) {
 		alert(error)
 	} finally {
+		setAnswered([])
 		setLoading(false);
 		isClicked(false);
 	}
